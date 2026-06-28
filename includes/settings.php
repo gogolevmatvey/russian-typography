@@ -470,6 +470,23 @@ function russian_typography_render_settings_page(): void {
 								<label>
 									<input
 										type="radio"
+										id="russian-typography-short-word-mode-standart"
+										name="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_OPTION ); ?>"
+										value="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_STANDART ); ?>"
+										aria-describedby="russian-typography-short-word-mode-standart-description"
+										<?php checked( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_STANDART, $short_word_mode ); ?>
+									>
+									<?php echo esc_html__( 'Standart', 'russian-typography' ); ?>
+								</label>
+							</p>
+							<p id="russian-typography-short-word-mode-standart-description" class="description">
+								<?php echo esc_html__( 'Spaces closer to Art. Lebedev Typograf. This mode imitates spacing only and does not change quotes, dashes, or punctuation.', 'russian-typography' ); ?>
+							</p>
+
+							<p>
+								<label>
+									<input
+										type="radio"
 										id="russian-typography-short-word-mode-soft"
 										name="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_OPTION ); ?>"
 										value="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_SOFT ); ?>"
@@ -538,23 +555,6 @@ function russian_typography_render_settings_page(): void {
 							</p>
 							<p id="russian-typography-full-max-next-word-length-description" class="description">
 								<?php echo esc_html__( 'If the next word is longer than this value, the space stays regular. This keeps semantic gluing from creating too-long non-breaking groups.', 'russian-typography' ); ?>
-							</p>
-
-							<p>
-								<label>
-									<input
-										type="radio"
-										id="russian-typography-short-word-mode-standart"
-										name="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_OPTION ); ?>"
-										value="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_STANDART ); ?>"
-										aria-describedby="russian-typography-short-word-mode-standart-description"
-										<?php checked( RUSSIAN_TYPOGRAPHY_SHORT_WORD_MODE_STANDART, $short_word_mode ); ?>
-									>
-									<?php echo esc_html__( 'Standart', 'russian-typography' ); ?>
-								</label>
-							</p>
-							<p id="russian-typography-short-word-mode-standart-description" class="description">
-								<?php echo esc_html__( 'Spaces closer to Art. Lebedev Typograf. This mode imitates spacing only and does not change quotes, dashes, or punctuation.', 'russian-typography' ); ?>
 							</p>
 
 							<p>

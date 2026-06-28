@@ -116,6 +116,16 @@ foreach (
 	russian_typography_assert_readme_contains( $russian_typography_settings_text, $russian_typography_required_settings_fragment );
 }
 
+$russian_typography_standart_mode_position = strpos( $russian_typography_settings_text, 'russian-typography-short-word-mode-standart' );
+$russian_typography_soft_mode_position     = strpos( $russian_typography_settings_text, 'russian-typography-short-word-mode-soft' );
+if (
+	false === $russian_typography_standart_mode_position ||
+	false === $russian_typography_soft_mode_position ||
+	$russian_typography_standart_mode_position > $russian_typography_soft_mode_position
+) {
+	russian_typography_readme_fail( 'Standart short-word gluing mode must be listed before Soft mode.' );
+}
+
 foreach (
 	array(
 		'Can short-word gluing be disabled in headings?',
