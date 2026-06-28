@@ -20,13 +20,12 @@ The plugin can:
 * glue historical abbreviations such as `n. e.` and `do n. e.` in Russian text;
 * glue numbers with common Russian units such as `5 km`, `480 year`, and `24 hours`;
 * limit processing to single posts and pages;
-* disable typography for selected heading levels and for post/card titles that pass through `the_title()`;
+* disable typography for selected `h1`-`h6` heading levels and for post/card titles that pass through `the_title()`;
 * keep long next words breakable in full mode with a separate length threshold;
 * imitate Art. Lebedev Typograf spacing locally in the `standart` mode.
 
 The plugin does not modify saved post content in the database.
 The `standart` mode imitates spaces only; it does not call the external Typograf service and does not change quotes, dashes, punctuation, or saved content.
-
 
 Spacing modes:
 
@@ -55,7 +54,7 @@ No. Processing runs only when HTML is rendered.
 
 = Can typography be disabled in headings? =
 
-Yes. Disable typography for the needed heading levels (`h1`-`h6`) in Settings -> Russian Typography. Post and card titles that pass through `the_title()` have a separate setting.
+Yes. Use "Disable typography in headings" for the needed heading levels (`h1`-`h6`). Use "Disable typography in post and card titles" for post and card titles that pass through `the_title()`.
 
 = What happens when the plugin is uninstalled? =
 

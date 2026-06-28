@@ -13,6 +13,7 @@ $russian_typography_plugin_dir = is_file( $russian_typography_root_dir . '/readm
 	: $russian_typography_root_dir . '/www/wordpress/wp-content/plugins/russian-typography';
 $russian_typography_assets_dir = $russian_typography_root_dir . '/wordpress-org-assets/russian-typography';
 $russian_typography_readme     = $russian_typography_plugin_dir . '/readme.txt';
+$russian_typography_settings   = $russian_typography_plugin_dir . '/includes/settings.php';
 $russian_typography_failures   = array();
 
 /**
@@ -68,10 +69,15 @@ function russian_typography_assert_readme_not_contains( string $readme, string $
 }
 
 russian_typography_assert_file_exists( $russian_typography_readme );
+russian_typography_assert_file_exists( $russian_typography_settings );
 
 $russian_typography_readme_text = is_file( $russian_typography_readme )
 	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 	? (string) file_get_contents( $russian_typography_readme )
+	: '';
+$russian_typography_settings_text = is_file( $russian_typography_settings )
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	? (string) file_get_contents( $russian_typography_settings )
 	: '';
 
 foreach (
@@ -91,10 +97,23 @@ foreach (
 		'== Frequently Asked Questions ==',
 		'== Changelog ==',
 		'Can typography be disabled in headings?',
-		'Post and card titles that pass through `the_title()` have a separate setting.',
+		'Disable typography in headings',
+		'Disable typography in post and card titles',
 	) as $russian_typography_required_fragment
 ) {
 	russian_typography_assert_readme_contains( $russian_typography_readme_text, $russian_typography_required_fragment );
+}
+
+foreach (
+	array(
+		'Disable typography in headings',
+		'Selected heading levels are skipped completely.',
+		'Post and card titles',
+		'Disable typography in post and card titles',
+		'Applies to the_title(): single post H1, cards, archives, and related content.',
+	) as $russian_typography_required_settings_fragment
+) {
+	russian_typography_assert_readme_contains( $russian_typography_settings_text, $russian_typography_required_settings_fragment );
 }
 
 foreach (
@@ -105,6 +124,17 @@ foreach (
 	) as $russian_typography_obsolete_fragment
 ) {
 	russian_typography_assert_readme_not_contains( $russian_typography_readme_text, $russian_typography_obsolete_fragment );
+}
+
+foreach (
+	array(
+		'Отключить типографику в заголовках',
+		'Если выбран h2',
+		'Заголовки записей и карточек',
+		'Применяется к the_title()',
+	) as $russian_typography_obsolete_settings_fragment
+) {
+	russian_typography_assert_readme_not_contains( $russian_typography_settings_text, $russian_typography_obsolete_settings_fragment );
 }
 
 if ( is_dir( $russian_typography_assets_dir ) ) {

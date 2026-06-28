@@ -408,11 +408,11 @@ function russian_typography_render_settings_page(): void {
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo esc_html__( 'Отключить типографику в заголовках', 'russian-typography' ); ?></th>
+					<th scope="row"><?php echo esc_html__( 'Disable typography in headings', 'russian-typography' ); ?></th>
 					<td>
 						<fieldset aria-describedby="russian-typography-disabled-headings-description">
 							<legend class="screen-reader-text">
-								<?php echo esc_html__( 'Отключить типографику в заголовках', 'russian-typography' ); ?>
+								<?php echo esc_html__( 'Disable typography in headings', 'russian-typography' ); ?>
 							</legend>
 
 							<input type="hidden" name="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_DISABLED_HEADINGS_OPTION ); ?>[]" value="">
@@ -433,13 +433,13 @@ function russian_typography_render_settings_page(): void {
 							<?php endforeach; ?>
 
 							<p id="russian-typography-disabled-headings-description" class="description">
-								<?php echo wp_kses_post( __( 'Если выбран h2, текст внутри <code>&lt;h2&gt;...&lt;/h2&gt;</code> не обрабатывается типографом вообще.', 'russian-typography' ) ); ?>
+								<?php echo wp_kses_post( __( 'Selected heading levels are skipped completely. For example, if h2 is selected, text inside <code>&lt;h2&gt;...&lt;/h2&gt;</code> is not processed.', 'russian-typography' ) ); ?>
 							</p>
 						</fieldset>
 					</td>
 				</tr>
 				<tr>
-					<th scope="row"><?php echo esc_html__( 'Заголовки записей и карточек', 'russian-typography' ); ?></th>
+					<th scope="row"><?php echo esc_html__( 'Post and card titles', 'russian-typography' ); ?></th>
 					<td>
 						<input type="hidden" name="<?php echo esc_attr( RUSSIAN_TYPOGRAPHY_DISABLE_TITLE_TYPOGRAPHY_OPTION ); ?>" value="0">
 						<label for="russian-typography-disable-title-typography">
@@ -451,10 +451,10 @@ function russian_typography_render_settings_page(): void {
 								aria-describedby="russian-typography-disable-title-typography-description"
 								<?php checked( $disable_title_typography ); ?>
 							>
-							<?php echo esc_html__( 'Отключить типографику в заголовках записей и карточек', 'russian-typography' ); ?>
+							<?php echo esc_html__( 'Disable typography in post and card titles', 'russian-typography' ); ?>
 						</label>
 						<p id="russian-typography-disable-title-typography-description" class="description">
-							<?php echo esc_html__( 'Применяется к the_title(): H1 записи, карточкам, архивам и связанным материалам.', 'russian-typography' ); ?>
+							<?php echo esc_html__( 'Applies to the_title(): single post H1, cards, archives, and related content.', 'russian-typography' ); ?>
 						</p>
 					</td>
 				</tr>
